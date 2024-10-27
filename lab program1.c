@@ -7,10 +7,10 @@ int main() {
     printf("Enter the size of the stack: ");
     scanf("%d", &size);
 
-    int stack[size]; // Initialize the stack after getting the size
+    int stack[size]; 
     int top = -1;
 
-    // Function prototypes
+    
     void push(int stack[], int *top, int size, int value);
     int pop(int stack[], int *top);
     void display(int stack[], int top);
@@ -48,7 +48,7 @@ int main() {
         }
     }
 
-    return 0; // Return statement for main
+    return 0; 
 }
 
 void push(int stack[], int *top, int size, int value) {
