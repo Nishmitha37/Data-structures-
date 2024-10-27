@@ -2,7 +2,7 @@
 #include <stdlib.h>
 
 int main() {
-    const int SIZE = 5; // Set the size of the queue
+    const int SIZE = 5; 
     int arr[SIZE];
     int front = -1;
     int rare = -1;
@@ -21,27 +21,27 @@ int main() {
     int Dequeue(int arr[], int front, int rare) {
         if (front == -1 || front > rare) {
             printf("Queue underflow\n");
-            return -1; // Indicate that the queue is empty
+            return -1; 
         } else {
             int deletedValue = arr[front];
             printf("Deleted element is: %d\n", deletedValue);
             front++;
-            // Reset front and rare if the queue is now empty
+            
             if (front > rare) {
                 front = rare = -1;
             }
-            return front; // Return the updated front
+            return front; 
         }
     }
 
     int Enqueue(int arr[], int front, int rare, int item) {
         if (rare == (SIZE - 1)) {
             printf("Queue Overflow\n");
-            return rare; // Return unchanged rare
+            return rare; 
         } else {
-            arr[++rare] = item; // Insert item at rare and increment rare
-            if (front == -1) front = 0; // Set front to 0 if it was -1
-            return rare; // Return the updated rare
+            arr[++rare] = item;
+            if (front == -1) front = 0; 
+            return rare; 
         }
     }
 
@@ -49,7 +49,7 @@ int main() {
         if (front != -1) {
             return arr[front];
         }
-        return -1; // Indicate the queue is empty
+        return -1;
     }
 
     while (1) {
@@ -64,7 +64,7 @@ int main() {
                 printf("Enter the element to be inserted: ");
                 scanf("%d", &item);
                 rare = Enqueue(arr, front, rare, item);
-                if (front == -1) front = 0; // Update front if necessary
+                if (front == -1) front = 0; 
                 break;
             }
             case 2:
@@ -88,7 +88,6 @@ int main() {
             default:
                 printf("Invalid input\n");
         }
-    }
-
-    return 0;
+    } 
+    return 0;
 }
