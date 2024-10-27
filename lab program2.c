@@ -30,11 +30,11 @@ int main() {
     printf("Enter your infix expression: ");
     scanf("%s", infix);
 
-    stack[++top] = '#';  // Initialize stack with '#'
+    stack[++top] = '#';
 
     while (infix[i] != '\0') {
         if (isalpha(infix[i])) {
-            // If operand, add to postfix expression
+            
             postfix[j++] = infix[i];
         } else if (infix[i] == '(') {
             stack[++top] = infix[i];
@@ -45,7 +45,7 @@ int main() {
             }
             top--;  // Remove '(' from stack
         } else {
-            // Operator encountered
+        
             while (pr(infix[i]) <= pr(stack[top]) && stack[top] != '#') {
                 postfix[j++] = stack[top--];
             }
@@ -54,16 +54,16 @@ int main() {
         i++;
     }
 
-    // Pop remaining operators from the stack
+    
     while (stack[top] != '#') {
         if (stack[top] == '(') {
             printf("\nThere was an issue with the expression...\n");
-            return 1;  // Exit if unmatched '(' is found
+            return 1; 
         }
         postfix[j++] = stack[top--];
     }
 
-    postfix[j] = '\0';  // Null-terminate the postfix expression
+    postfix[j] = '\0';  
 
     printf("Postfix expression: %s\n", postfix);
     return 0;
